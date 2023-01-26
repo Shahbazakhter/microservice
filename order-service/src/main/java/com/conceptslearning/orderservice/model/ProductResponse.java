@@ -5,13 +5,13 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Data
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
+@Data
 @Builder
-public class OrderRequest {
+public class ProductResponse {
+    private String productName;
     private long productId;
-    private long totalAmount;
     private long quantity;
-    private PaymentMode paymentMode;
+    private long price;
 }
