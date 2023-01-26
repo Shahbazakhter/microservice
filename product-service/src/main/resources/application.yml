@@ -1,0 +1,27 @@
+server:
+  port: 8080
+spring:
+  zipkin:
+    baseUrl: http://localhost:9411/
+  datasource:
+    url: jdbc:mysql://${DB_HOST:localhost}:3306/productdb
+    username: root
+    password: root
+    driverClassName: com.mysql.cj.jdbc.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL57InnoDBDialect
+    hibernate:
+      ddl-auto: update
+  application:
+    name: product-service
+  config:
+      import: configserver:http://localhost:9296
+#  sleuth:
+#    sampler:
+#      probability: 1.0
+#eureka:
+#  client:
+#    fetch-registry: true
+#    register-with-eureka: true
+#    service-url:
+#      defaultZone: ${EUREKA_SERVER_ADDRESS:http://localhost:8761/eureka}
